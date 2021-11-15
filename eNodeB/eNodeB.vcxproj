@@ -142,6 +142,7 @@
     <ClCompile Include="eNodeB.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="answer.txt" />
     <Text Include="enodeb.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

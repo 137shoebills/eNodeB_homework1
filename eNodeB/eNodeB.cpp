@@ -210,6 +210,8 @@ void GetPairPoints(eNodeB* arr,int siz) {
     my_merge(arr, 0, siz - 1, temp, 1);
 }
 int main() {
+    std::fstream answerTXT;
+    answerTXT.open("answer.txt", std::ios::out);
     srand((unsigned int)time(NULL));
     eNodeB* arr=NULL;
     int siz;
@@ -221,26 +223,26 @@ int main() {
         int k = test[i];
         recur_num = 0;
         eNodeB ans = Get_K_dist(arr, 0, siz - 1, k - 1, 1);
-        std::cout << "第" << k << "小值的基站id为" << ans.id << std::endl;
-        std::cout << "第" << k << "小值为" << std::fixed<< std::setprecision(3) << ans.k_dist << std::endl;
-        std::cout << "二分查找循环层数为" << recur_num << std::endl;
-        std::cout << std::endl;
+        answerTXT << "第" << k << "小值的基站id为" << ans.id << std::endl;
+        answerTXT << "第" << k << "小值为" << std::fixed<< std::setprecision(3) << ans.k_dist << std::endl;
+        answerTXT << "二分查找循环层数为" << recur_num << std::endl;
+        answerTXT << std::endl;
 
         recur_num = 0;
         ans = Tri_Get_K_dist(arr, 0, siz - 1, k - 1, 1);
-        std::cout << "第" << k << "小值的基站id为" << ans.id << std::endl;
-        std::cout << "第" << k << "小值为" << std::fixed << std::setprecision(3) << ans.k_dist << std::endl;
-        std::cout << "三分查找循环层数为" << recur_num << std::endl;
-        std::cout << std::endl;
+        answerTXT << "第" << k << "小值的基站id为" << ans.id << std::endl;
+        answerTXT << "第" << k << "小值为" << std::fixed << std::setprecision(3) << ans.k_dist << std::endl;
+        answerTXT << "三分查找循环层数为" << recur_num << std::endl;
+        answerTXT << std::endl;
     }
 
     recur_num = 0;
     GetPairPoints(arr, siz);
-    std::cout << "循环层数为" << recur_num << std::endl;
-    std::cout << "最近两点的id为" << f1.id<<' '<<f2.id << std::endl;
-    std::cout << "最小距离为" << std::fixed << std::setprecision(3) << ans1 << std::endl;
-    std::cout << "次近两点的id为" << s1.id << ' ' << s2.id << std::endl;
-    std::cout << "次小距离为" << std::fixed << std::setprecision(3) << ans2 << std::endl;
+    answerTXT << "循环层数为" << recur_num << std::endl;
+    answerTXT << "最近两点的id为" << f1.id<<' '<<f2.id << std::endl;
+    answerTXT << "最小距离为" << std::fixed << std::setprecision(3) << ans1 << std::endl;
+    answerTXT << "次近两点的id为" << s1.id << ' ' << s2.id << std::endl;
+    answerTXT << "次小距离为" << std::fixed << std::setprecision(3) << ans2 << std::endl;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

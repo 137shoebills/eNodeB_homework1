@@ -23,5 +23,8 @@
     <Text Include="enodeb.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="answer.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
